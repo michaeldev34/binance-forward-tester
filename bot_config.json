@@ -1,0 +1,70 @@
+{
+  "initial_capital": 100000.0,
+  "commission_rate": 0.001,
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "ADAUSDT",
+    "BNBUSDT"
+  ],
+  "strategy_configs": {
+    "MA_Fast": {
+      "type": "MovingAverageStrategy",
+      "params": {
+        "fast_period": 10,
+        "slow_period": 30,
+        "position_size_pct": 0.15
+      }
+    },
+    "MA_Medium": {
+      "type": "MovingAverageStrategy",
+      "params": {
+        "fast_period": 20,
+        "slow_period": 50,
+        "position_size_pct": 0.12
+      }
+    },
+    "MA_Slow": {
+      "type": "MovingAverageStrategy",
+      "params": {
+        "fast_period": 50,
+        "slow_period": 100,
+        "position_size_pct": 0.10
+      }
+    },
+    "RSI_Conservative": {
+      "type": "RSIStrategy",
+      "params": {
+        "rsi_period": 14,
+        "oversold_level": 25,
+        "overbought_level": 75,
+        "position_size_pct": 0.08
+      }
+    },
+    "RSI_Aggressive": {
+      "type": "RSIStrategy",
+      "params": {
+        "rsi_period": 14,
+        "oversold_level": 35,
+        "overbought_level": 65,
+        "position_size_pct": 0.12
+      }
+    }
+  },
+  "min_sharpe_ratio": 0.8,
+  "min_daily_return": 0.0045,
+  "max_drawdown": 0.50,
+  "min_consistency_score": 0.7,
+  "min_stability_score": 0.6,
+  "backtest_days": 90,
+  "evaluation_days": 14,
+  "min_strategies_for_portfolio": 2,
+  "update_interval_seconds": 30,
+  "rebalance_threshold": 0.05,
+  "rebalance_frequency": "weekly",
+  "max_position_size": 0.3,
+  "emergency_stop_drawdown": 0.25,
+  "log_level": "INFO",
+  "save_results": true,
+  "results_directory": "bot_results"
+}
